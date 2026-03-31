@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
@@ -70,7 +69,7 @@ class ScatterChartScreen extends React.Component {
     );
   }
 
-  _randomYValues(range: number, size: number) {
+  _randomYValues(range, size) {
     return _.times(size, () => {
       return {y: Math.random() * range}
     });

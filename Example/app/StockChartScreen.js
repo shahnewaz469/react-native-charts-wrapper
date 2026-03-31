@@ -1,9 +1,7 @@
 import React from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
-  Button,
   View, processColor
 } from 'react-native';
 
@@ -26,6 +24,8 @@ class StockChartScreen extends React.Component {
     this.isLoading = false
     this.xMin = 0
     this.xMax = 0
+    this.priceChartRef = React.createRef();
+    this.volumeChartRef = React.createRef();
 
     this.state = {
       priceXAxis: {
@@ -242,8 +242,8 @@ class StockChartScreen extends React.Component {
 
             let newData = this.generateNewData(from, to, data);
 
-            this.refs.priceChart.setDataAndLockIndex(newData.combinedData)
-            this.refs.volumeChart.setDataAndLockIndex(newData.volumeData)
+            this.priceChartRef.current.setDataAndLockIndex(newData.combinedData)
+            this.volumeChartRef.current.setDataAndLockIndex(newData.volumeData)
 
             this.isLoading = false
 
@@ -272,7 +272,7 @@ class StockChartScreen extends React.Component {
 
           dragDecelerationEnabled={false}
           yAxis={{left: {enabled: false}, right: {position: 'INSIDE_CHART'}}}
-          ref="priceChart"
+          ref={this.priceChartRef}
           doubleTapToZoomEnabled={false}  // it has to be false!!
           chartDescription={{text: ""}}
           legend={{verticalAlignment: "TOP"}}
@@ -294,7 +294,7 @@ class StockChartScreen extends React.Component {
 
           dragDecelerationEnabled={false}
           yAxis={{left: {enabled: false}, right: {position: 'INSIDE_CHART'}}}
-          ref="volumeChart"
+          ref={this.volumeChartRef}
           doubleTapToZoomEnabled={false}  // it has to be false!!
           chartDescription={{text: ""}}
           style={styles.volume}/>

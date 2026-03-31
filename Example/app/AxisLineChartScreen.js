@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
@@ -80,7 +79,7 @@ class AxisLineChartScreen extends React.Component {
     );
   }
 
-  _randomYValues(range: number, size: number) {
+  _randomYValues(range, size) {
     const nextValueMaxDiff = 0.2;
     let lastValue = range / 2;
 

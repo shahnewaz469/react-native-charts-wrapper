@@ -1,9 +1,7 @@
 import React from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
-  Button,
   View, processColor
 } from 'react-native';
 import update from 'immutability-helper';
@@ -21,7 +19,7 @@ class InfiniteScrollLineChartScreen extends React.Component {
     this.isLoading = false
     this.xMin = 0
     this.xMax = 0
-
+    this.chartRef = React.createRef();
 
     this.state = {
       data: {},
@@ -87,7 +85,7 @@ class InfiniteScrollLineChartScreen extends React.Component {
           
           _this.mockLoadDataFromServer(centerX - pageSize, centerX + pageSize).then(function (data) {
 
-            _this.refs.chart.setDataAndLockIndex(data)
+            _this.chartRef.current.setDataAndLockIndex(data)
 
             _this.isLoading = false
 
@@ -114,7 +112,7 @@ class InfiniteScrollLineChartScreen extends React.Component {
             scaleYEnabled={true}
             visibleRange={this.state.visibleRange}
             dragDecelerationEnabled={false}
-            ref="chart"
+            ref={this.chartRef}
             onChange={this.handleChange.bind(this)}
           />
         </View>

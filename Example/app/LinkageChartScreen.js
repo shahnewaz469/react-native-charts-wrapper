@@ -1,9 +1,7 @@
 import React from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
-  Button,
   View, processColor
 } from 'react-native';
 import update from 'immutability-helper';

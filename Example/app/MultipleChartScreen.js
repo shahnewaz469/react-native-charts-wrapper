@@ -1,9 +1,7 @@
 import React from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
-  Button,
   View, processColor
 } from 'react-native';
 import update from 'immutability-helper';
@@ -15,6 +13,8 @@ class MultipleChartScreen extends React.Component {
   constructor() {
     super();
 
+    this.chart1Ref = React.createRef();
+    this.chart2Ref = React.createRef();
     this.state = {
       data: {},
       chart1Zoom: {scaleX: 3, scaleY: 1, xValue: 50, yValue: 0},
@@ -75,7 +75,7 @@ class MultipleChartScreen extends React.Component {
             pinchZoom={true}
             zoom={this.state.chart1Zoom}
 
-            ref="chart1"
+            ref={this.chart1Ref}
 
             onChange={(event) => this.syncToChart2(event.nativeEvent)}
           />
@@ -94,7 +94,7 @@ class MultipleChartScreen extends React.Component {
             scaleYEnabled={true}
             pinchZoom={true}
             
-            ref="chart2"
+            ref={this.chart2Ref}
 
             zoom={this.state.chart2Zoom}
           />

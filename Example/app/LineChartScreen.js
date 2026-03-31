@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   Button,
@@ -15,6 +14,7 @@ class LineChartScreen extends React.Component {
   constructor() {
     super();
 
+    this.chartRef = React.createRef();
     this.state = {
       data: {},
 
@@ -56,7 +56,7 @@ class LineChartScreen extends React.Component {
 
   onPressLearnMore() {
 
-    this.refs.chart.setDataAndLockIndex({
+    this.chartRef.current.setDataAndLockIndex({
       dataSets: [{
         values: [
           {x: 1, y: 0.88},
@@ -143,7 +143,7 @@ class LineChartScreen extends React.Component {
             // visibleRange={this.state.visibleRange}
             dragDecelerationEnabled={true}
             dragDecelerationFrictionCoef={0.99}
-            ref="chart"
+            ref={this.chartRef}
             keepPositionOnRotation={false}
             onSelect={this.handleSelect.bind(this)}            
           />

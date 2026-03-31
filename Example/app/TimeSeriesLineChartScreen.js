@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
@@ -16,6 +15,7 @@ class TimeSeriesLineChartScreen extends React.Component {
   constructor() {
     super();
 
+    this.chartRef = React.createRef();
     this.state = {
       data: {},
       legend: {
@@ -104,7 +104,7 @@ class TimeSeriesLineChartScreen extends React.Component {
     );
   }
 
-  _randomParabolaValues(size: number) {
+  _randomParabolaValues(size) {
     return _.times(size, (index) => {
       return {x: index, y: index * index}
     });
@@ -154,7 +154,7 @@ class TimeSeriesLineChartScreen extends React.Component {
             onSelect={this.handleSelect.bind(this)}
             onChange={(event) => console.log(event.nativeEvent)}
 
-            ref="chart"
+            ref={this.chartRef}
           />
         </View>
       </View>

@@ -1,9 +1,7 @@
 import React from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
-  Button,
   View, processColor
 } from 'react-native';
 import update from 'immutability-helper';
@@ -15,6 +13,7 @@ class MovingWindowChartScreen extends React.Component {
   constructor() {
     super();
 
+    this.chartRef = React.createRef();
     this.state = {
       data: {
         dataSets: [{
@@ -29,7 +28,7 @@ class MovingWindowChartScreen extends React.Component {
   }
 
   componentDidMount() {
-    this.refs.chart.moveViewToAnimated(100, 0, 'left', 10000)
+    this.chartRef.current.moveViewToAnimated(100, 0, 'left', 10000)
   }
 
   componentWillUnmount() {
@@ -57,7 +56,7 @@ class MovingWindowChartScreen extends React.Component {
             dragDecelerationFrictionCoef={0.99}
             zoom={{scaleX: 5, scaleY: 1, xValue: 0, yValue: 0}}
 
-            ref="chart"
+            ref={this.chartRef}
           />
         </View>
 

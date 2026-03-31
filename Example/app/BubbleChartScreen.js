@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
@@ -63,7 +62,7 @@ class BubbleChartScreen extends React.Component {
     );
   }
 
-  _randomYValues(range: number, size: number) {
+  _randomYValues(range, size) {
     return _.times(size, (index) => {
       return {
         y: Math.random() * range,
