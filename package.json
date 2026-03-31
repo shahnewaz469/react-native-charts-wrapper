@@ -27,6 +27,7 @@
     "ios/**/*.swift",
     "lib",
     "index.js",
+    "react-native.config.js",
     "react-native-charts-wrapper.podspec",
     "ios/ReactNativeCharts/ReactNativeCharts.xcodeproj/project.pbxproj"
   ],
