@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/wuxudong/react-native-charts-wrapper.git"
   },
-  "version": "0.7.2",
+  "version": "0.7.3",
   "description": "A react-native charts support both android and iOS.",
   "author": "wuxudong",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "plugin": "./app.plugin"
   },
   "files": [
-    "android/src",
+    "android/src/**",
     "android/build.gradle",
     "android/gradle.properties",
     "ios/**/*.h",
@@ -31,7 +31,6 @@
     "lib",
     "index.js",
     "app.plugin.js",
-    "expo-module.config.json",
     "react-native.config.js",
     "react-native-charts-wrapper.podspec",
     "ios/ReactNativeCharts/ReactNativeCharts.xcodeproj/project.pbxproj"
@@ -41,7 +40,7 @@
     "prop-types": "^15.8.1"
   },
   "peerDependencies": {
-    "react": ">=19.0.0",
-    "@expo/config-plugins": ">=8.0.0"
+    "@expo/config-plugins": ">=8.0.0",
+    "react": ">=19.0.0"
   }
 }
