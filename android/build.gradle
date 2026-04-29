@@ -32,12 +32,10 @@ android {
 }
 repositories {
     mavenCentral()
-    flatDir { dirs 'libs' }
     google()
     maven { url "https://jitpack.io" }
 }
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     compileOnly "com.facebook.react:react-native:+"
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }
